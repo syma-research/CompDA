@@ -4,7 +4,7 @@
 #' @param y The outcome of interests. Currently only continuous and binary y are supported.
 #' @param covariates Matrix of potential confounders.
 #' @param family_y Specify the glm family for y. Only "binomial" (for binary y) and "gaussian" (for continuous y) are supported.
-#' @param method_y Prediction model for y. Currently options "glmnet", "xgbTree", "rf", and "svm" are supported.
+#' @param method_y Prediction model for y. Currently options "glmnet", "gbt", "rf", and "svm" are supported.
 #' @param m Number of random CRT samples to generate for computing p-values.
 #' @param cv_folds Number of CV folds in the modeling for y.
 #' @param epsilon Pseudo count to add to relative abundances before transformation.
@@ -34,8 +34,8 @@ CompDA <-
 
     if(!(family_y %in% c("gaussian", "binomial")))
       stop("Currently only gaussian and binomial families for y are accepted!")
-    if(!(method_y %in% c("glmnet", "xgbTree", "rf", "svm")))
-       stop("Currently only supports glmnet, xgbTree, rf, and svm prediction models!")
+    if(!(method_y %in% c("glmnet", "gbt", "rf", "svm")))
+       stop("Currently only supports glmnet, gbt, rf, and svm prediction models!")
 
     if(is.null(epsilon))
       epsilon <- min(setdiff(x, 0)) / 2

@@ -8,11 +8,11 @@ CompDA(
   x,
   y,
   covariates = NULL,
-  epsilon = NULL,
   family_y = "gaussian",
   method_y = "glmnet",
-  cv_folds = 5,
   m = 10000,
+  cv_folds = 5,
+  epsilon = NULL,
   verbose = TRUE,
   debug_dir = NULL
 )
@@ -24,15 +24,15 @@ CompDA(
 
 \item{covariates}{Matrix of potential confounders.}
 
-\item{epsilon}{Pseudo count to add to relative abundances before transformation.}
-
 \item{family_y}{Specify the glm family for y. Only "binomial" (for binary y) and "gaussian" (for continuous y) are supported.}
 
-\item{method_y}{Regression model for y. Currently options "glmnet", "xgbTree", "rf", and "svm" are supported.}
+\item{method_y}{Prediction model for y. Currently options "glmnet", "gbt", "rf", and "svm" are supported.}
+
+\item{m}{Number of random CRT samples to generate for computing p-values.}
 
 \item{cv_folds}{Number of CV folds in the modeling for y.}
 
-\item{m}{Number of random CRT samples to generate for computing p-values.}
+\item{epsilon}{Pseudo count to add to relative abundances before transformation.}
 
 \item{verbose}{Whether or not to print verbose information.}
 

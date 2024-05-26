@@ -10,6 +10,9 @@ Encoding: UTF-8
 RoxygenNote: 7.2.3
 Depends: 
   glmnet,
+  xgboost,
+  randomForest,
+  kernlab,
   caret,
   future,
   future.apply
